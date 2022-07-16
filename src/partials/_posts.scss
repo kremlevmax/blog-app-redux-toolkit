@@ -14,6 +14,11 @@
     h3 {
       margin-bottom: 1rem;
     }
+
+    #author {
+      text-align: end;
+      font-style: italic;
+    }
   }
 }
 
@@ -32,7 +37,8 @@
     margin: 0 auto;
 
     input,
-    textarea {
+    textarea,
+    select {
       outline: black solid 1px;
       margin-bottom: 2rem;
     }
@@ -47,5 +53,15 @@
         background-color: aliceblue;
       }
     }
+  }
+}
+
+.reaction-buttons {
+  display: flex;
+  gap: 1rem;
+
+  .reaction-button {
+    background: white;
+    cursor: pointer;
   }
 }
