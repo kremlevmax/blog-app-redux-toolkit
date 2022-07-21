@@ -37,13 +37,13 @@ body {
 }
 
 .App {
-  max-width: 600px;
   margin: 2rem auto;
+  position: relative;
 }
 
 #posts-list {
   max-width: 600px;
-  margin-bottom: 2rem;
+  margin: auto;
 }
 #posts-list h2 {
   margin-bottom: 2rem;
@@ -64,6 +64,7 @@ body {
 
 #post-form {
   max-width: 600px;
+  margin: auto;
 }
 #post-form h2 {
   margin-bottom: 2rem;
@@ -100,4 +101,90 @@ body {
 .reaction-buttons .reaction-button {
   background: white;
   cursor: pointer;
+}
+
+@-webkit-keyframes textTransition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textTransition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.popup-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.popup-background .popup {
+  width: 25%;
+  min-width: 300px;
+  padding: 4rem;
+  height: auto;
+  border: 2px solid #bfbfbf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: height 0.25s ease-in;
+}
+.popup-background .popup form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-animation-name: textTransition;
+          animation-name: textTransition;
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.popup-background .popup form input {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #bfbfbf;
+  line-height: 2rem;
+  transition: all 400ms ease;
+}
+.popup-background .popup form input:focus {
+  border-bottom: 2px solid #7b7b7b;
+}
+.popup-background .popup form button {
+  margin: 0 auto 2rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: all 400ms ease;
+}
+.popup-background .popup form button:hover {
+  background: #f0f8ff;
+}
+.popup-background .popup form button:active {
+  box-shadow: none;
+}
+.popup-background .popup form span {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  color: #bfbfbf;
+  transition: all 400ms ease;
+}
+.popup-background .popup form span:hover {
+  color: #7b7b7b;
 }/*# sourceMappingURL=style.css.map */

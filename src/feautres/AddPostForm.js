@@ -28,11 +28,11 @@ const AddPostForm = () => {
     }
   };
 
-  const userOptions = users.map((user) => (
-    <option key={user.id} value={user.id}>
-      {user.name}
-    </option>
-  ));
+  // const userOptions = users.map((user) => (
+  //   <option key={user.id} value={user.id}>
+  //     {user.name}
+  //   </option>
+  // ));
 
   return (
     <section id='post-form'>
@@ -49,7 +49,7 @@ const AddPostForm = () => {
         <label htmlFor='postAuthor'>Author:</label>
         <select value={userId} id='postAuthor' onChange={onAuthorChanged}>
           <option value='' defaultValue></option>
-          {userOptions}
+          {/* {userOptions} */}
         </select>
         <label htmlFor='postContent'>Post Content:</label>
         <textarea

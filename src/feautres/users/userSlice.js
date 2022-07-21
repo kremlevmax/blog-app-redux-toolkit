@@ -1,12 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAccount } from "../../service/userServices";
 
-const initialState = [
-  { id: "0", name: "George Washington" },
-  { id: "1", name: "Albert Einstein" },
-  { id: "2", name: "Alan Turing" },
-];
+const createUser = createAsyncThunk(
+  "users/createUser",
+  async (username, password) => {
+    const response = await createAccount(username, password);
+    return response;
+  }
+);
 
-const userSlice = createSlice({ name: "users", initialState, reducers: {} });
+const initialState = { loginStatus: false };
+
+const userSlice = createSlice({
+  name: "users",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(createUser.fulfilled, (state, action) => {
+      state.loginStatus = true;
+    });
+  },
+});
 
 export const selectAllUsers = (state) => state.users;
 export default userSlice.reducer;
+export const { createUser } = userSlice.actions;
