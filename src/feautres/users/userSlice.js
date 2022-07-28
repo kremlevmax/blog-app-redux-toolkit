@@ -1,27 +1,27 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createAccount } from "../../service/userServices";
+import { createSlice } from "@reduxjs/toolkit";
 
-const createUser = createAsyncThunk(
-  "users/createUser",
-  async (username, password) => {
-    const response = await createAccount(username, password);
-    return response;
-  }
-);
+// export const createUser = createAsyncThunk(
+//   "users/createUser",
+//   async ({ username, password }) => {
+//     const result = await createAccount(username, password);
+//     console.log(result.user);
+//   }
+// );
 
-const initialState = { loginStatus: false };
+const initialState = { loginStatus: false, username: "" };
 
 const userSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(createUser.fulfilled, (state, action) => {
-      state.loginStatus = true;
-    });
+  reducers: {
+    setLoginStatus: (state, action) => {
+      state.loginStatus = action.payload.loginStatus;
+      state.username = action.payload.username;
+    },
   },
 });
 
 export const selectAllUsers = (state) => state.users;
+export const { setLoginStatus } = userSlice.actions;
+
 export default userSlice.reducer;
-export const { createUser } = userSlice.actions;

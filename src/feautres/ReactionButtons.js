@@ -16,6 +16,7 @@ const ReactionButtons = ({ post }) => {
   const dispatch = useDispatch();
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
+    const reaction = post.reactions[name] ? 1 : 0;
     return (
       <button
         key={name}
@@ -27,7 +28,7 @@ const ReactionButtons = ({ post }) => {
       >
         {emoji}
         &nbsp;
-        {[post.reactions[name]]}
+        {reaction}
       </button>
     );
   });

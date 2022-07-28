@@ -9,12 +9,12 @@ const initialState = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi earum nam maxime similique distinctio pariatur assumenda vero natus beatae autem!",
     date: sub(new Date(), { minutes: 10 }).toISOString(),
     reactions: {
-      thumbsUp: 0,
-      wow: 0,
-      heart: 0,
-      rocket: 0,
-      coffee: 0,
-      sad: 0,
+      thumbsUp: false,
+      wow: false,
+      heart: false,
+      rocket: false,
+      coffee: false,
+      sad: false,
     },
   },
   {
@@ -24,12 +24,12 @@ const initialState = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi earum nam maxime similique distinctio pariatur assumenda vero natus beatae autem!",
     date: sub(new Date(), { minutes: 20 }).toISOString(),
     reactions: {
-      thumbsUp: 0,
-      wow: 0,
-      heart: 0,
-      rocket: 0,
-      coffee: 0,
-      sad: 0,
+      thumbsUp: false,
+      wow: false,
+      heart: false,
+      rocket: false,
+      coffee: false,
+      sad: false,
     },
   },
 ];
@@ -42,21 +42,21 @@ const postsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(title, content, userId) {
+      prepare(title, content, username) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
-            userId,
+            username,
             date: new Date().toISOString(),
             reactions: {
-              thumbsUp: 0,
-              wow: 0,
-              heart: 0,
-              rocket: 0,
-              coffee: 0,
-              sad: 0,
+              thumbsUp: false,
+              wow: false,
+              heart: false,
+              rocket: false,
+              coffee: false,
+              sad: false,
             },
           },
         };
@@ -66,7 +66,7 @@ const postsSlice = createSlice({
       const { postId, reaction } = action.payload;
       const existingPost = state.find((post) => post.id === postId);
       if (existingPost) {
-        existingPost.reactions[reaction]++;
+        existingPost.reactions[reaction] = !existingPost.reactions[reaction];
       }
     },
   },
