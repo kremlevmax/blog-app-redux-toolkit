@@ -1,14 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// export const createUser = createAsyncThunk(
-//   "users/createUser",
-//   async ({ username, password }) => {
-//     const result = await createAccount(username, password);
-//     console.log(result.user);
-//   }
-// );
-
-const initialState = { loginStatus: false, username: "" };
+const initialState = { loginStatus: false, username: "", loading: true };
 
 const userSlice = createSlice({
   name: "users",
@@ -17,6 +9,7 @@ const userSlice = createSlice({
     setLoginStatus: (state, action) => {
       state.loginStatus = action.payload.loginStatus;
       state.username = action.payload.username;
+      state.loading = action.payload.loading;
     },
   },
 });

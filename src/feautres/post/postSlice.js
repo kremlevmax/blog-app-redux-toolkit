@@ -1,38 +1,20 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { sub } from "date-fns";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../service/firebaseConfig";
 
-const initialState = [
-  {
-    id: "1",
-    title: "Lorem, ipsum dolor",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi earum nam maxime similique distinctio pariatur assumenda vero natus beatae autem!",
-    date: sub(new Date(), { minutes: 10 }).toISOString(),
-    reactions: {
-      thumbsUp: false,
-      wow: false,
-      heart: false,
-      rocket: false,
-      coffee: false,
-      sad: false,
-    },
-  },
-  {
-    id: "2",
-    title: "Lorem, ipsum dolor",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi earum nam maxime similique distinctio pariatur assumenda vero natus beatae autem!",
-    date: sub(new Date(), { minutes: 20 }).toISOString(),
-    reactions: {
-      thumbsUp: false,
-      wow: false,
-      heart: false,
-      rocket: false,
-      coffee: false,
-      sad: false,
-    },
-  },
-];
+const initialState = [];
+
+export const getPosts = createAsyncThunk(
+  "posts/getPosts",
+  async (dispatch, getState) => {
+    const querySnapshot = await getDocs(collection(db, "posts"));
+    const result = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    return result;
+  }
+);
 
 const postsSlice = createSlice({
   name: "posts",
@@ -42,14 +24,14 @@ const postsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(title, content, username) {
+      prepare(id, title, content, username, date) {
         return {
           payload: {
-            id: nanoid(),
+            id,
             title,
             content,
             username,
-            date: new Date().toISOString(),
+            date,
             reactions: {
               thumbsUp: false,
               wow: false,
@@ -68,6 +50,11 @@ const postsSlice = createSlice({
       if (existingPost) {
         existingPost.reactions[reaction] = !existingPost.reactions[reaction];
       }
+    },
+  },
+  extraReducers: {
+    [getPosts.fulfilled]: (state, { payload }) => {
+      return payload;
     },
   },
 });

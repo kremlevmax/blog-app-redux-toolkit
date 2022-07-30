@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
 
 import { postAdded } from "./post/postSlice";
 import "../style.css";
+import { createPost } from "../service/postSurvices";
 
 const AddPostForm = () => {
   const username = useSelector((state) => state.users.username);
@@ -17,7 +19,11 @@ const AddPostForm = () => {
 
   const onSavePostClicked = () => {
     if (canSave) {
-      dispatch(postAdded(title, content, username));
+      const id = nanoid();
+      const date = new Date().toISOString();
+      createPost(id, title, content, username, date);
+
+      dispatch(postAdded(id, title, content, username, date));
       setTitle("");
       setContent("");
     }

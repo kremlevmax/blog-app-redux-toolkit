@@ -5,7 +5,6 @@ const Register = ({ hasAccount, setHasAccount }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [error, setError] = useState("");
 
   const onUsernameChanged = (event) => setUsername(event.target.value);
   const onUPasswordChanged = (event) => setPassword(event.target.value);
@@ -21,7 +20,6 @@ const Register = ({ hasAccount, setHasAccount }) => {
     } else {
       setPassword("");
       setPasswordRepeat("");
-      setError("Password doesn't match");
     }
   };
 
