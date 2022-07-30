@@ -7,6 +7,7 @@ import { useAuth } from "./service/userServices";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "./feautres/post/postSlice";
 import Loading from "./components/Loading";
+import Logout from "./components/Logout";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Loading />
       ) : loginStatus ? (
         <>
+          <Logout />
           <PostsList />
           <AddPostForm />
         </>

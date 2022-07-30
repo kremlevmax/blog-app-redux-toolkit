@@ -1,0 +1,14 @@
+.logout__container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 2%;
+}
+
+.logout__button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.logout__button .logout__icon {
+  margin-right: 0.5em;
+}
