@@ -1,9 +1,8 @@
 ## Blog Application
 
-````md
-![alt text](assets/images/screenshot.png)
-
-````
+```md
+![alt text](/assets/images/screenshot.png)
+```
 
 ## Stack
 
@@ -19,7 +18,8 @@ Before start use npm package manager to install dependencies.
 
 ```bash
 npm install
-````
+```
+
 ````
 
 ### Usage
@@ -33,3 +33,4 @@ npm start
 ### Live
 
 [GitHub Pages](https://kremlevmax.github.io/blog-app-redux-toolkit/)
+````
