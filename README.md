@@ -1,8 +1,6 @@
 ## Blog Application
 
-```md
 ![alt text](/assets/images/screenshot.png)
-```
 
 ## Stack
 
