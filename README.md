@@ -18,8 +18,6 @@ Before start use npm package manager to install dependencies.
 npm install
 ```
 
-````
-
 ### Usage
 
 Use npm to start project
@@ -31,4 +29,7 @@ npm start
 ### Live
 
 [GitHub Pages](https://kremlevmax.github.io/blog-app-redux-toolkit/)
-````
+
+```
+
+```
