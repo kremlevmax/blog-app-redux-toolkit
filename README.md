@@ -29,7 +29,3 @@ npm start
 ### Live
 
 [GitHub Pages](https://kremlevmax.github.io/blog-app-redux-toolkit/)
-
-```
-
-```
