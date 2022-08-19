@@ -1,21 +1,14 @@
 import { doc, setDoc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
-export const createPost = async (id, title, content, username, date) => {
+export const createPost = async (id, title, content, email, mood, date) => {
   try {
     await setDoc(doc(db, "posts", id), {
       title,
       content,
-      username,
+      email,
+      mood,
       date,
-      reactions: {
-        thumbsUp: false,
-        wow: false,
-        heart: false,
-        rocket: false,
-        coffee: false,
-        sad: false,
-      },
     });
   } catch (e) {
     console.error("Error adding document: ", e);

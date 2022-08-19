@@ -1,10 +1,59 @@
 #posts-list {
   max-width: 600px;
   margin: auto;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 4rem;
+
+  @media only screen and (max-device-width: 625px) {
+    box-shadow: none;
+  }
 
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     text-align: center;
+    position: relative;
+
+    .first-block,
+    .second-block {
+      display: inline-block;
+      padding: 10px;
+      color: white;
+    }
+
+    .first-block {
+      transform: translateY(10px);
+      background-color: #0793e3;
+    }
+
+    .second-block {
+      transform: translateY(-10px);
+      background-color: #9bd4f4;
+    }
+
+    .top-secret {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      display: inline-block;
+      font-family: "Rubik Distressed", cursive;
+      font-size: 1.4rem;
+      color: red;
+      border: 3px solid red;
+      padding: 2px;
+      border-radius: 2px;
+      transform: rotate(-20deg);
+    }
   }
   article {
     max-width: 550px;
@@ -25,6 +74,23 @@
 #post-form {
   max-width: 600px;
   margin: auto;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 2rem;
+
+  @media only screen and (max-device-width: 625px) {
+    box-shadow: none;
+    background: transparent;
+  }
 
   h2 {
     margin-bottom: 2rem;
@@ -37,21 +103,52 @@
     flex-direction: column;
     margin: 0 auto;
 
+    label {
+      margin-bottom: 0.5rem;
+    }
+
     input,
     textarea,
     select {
-      outline: black solid 1px;
+      outline: rgba(255, 255, 255, 0.6) solid 1px;
+      background-color: rgba(255, 255, 255, 0.477);
       margin-bottom: 2rem;
+      // background-color: transparent;
+      border-radius: 2px;
+
+      @media only screen and (max-device-width: 625px) {
+        outline: #63b6ff;
+        border: 1px solid #a7d0f4;
+      }
+    }
+
+    input,
+    select {
+      height: 2rem;
     }
 
     button {
       max-width: fit-content;
       padding: 0.7rem 1.5rem;
+
+      background-color: #37a2e5;
+      color: white;
       cursor: pointer;
       margin: 0 auto;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+      box-shadow: 6px 6.7px 5.1px -4px rgba(0, 0, 0, 0.028),
+        20.1px 22.3px 17.2px -4px rgba(0, 0, 0, 0.042),
+        90px 100px 77px -4px rgba(0, 0, 0, 0.07);
 
       &:hover {
-        background-color: aliceblue;
+        background-color: #0793e3;
+        // color: black;
+      }
+
+      &:disabled {
+        background-color: rgba(255, 255, 255, 0.4);
+        color: rgba(0, 0, 0, 0.4);
       }
     }
   }
@@ -62,7 +159,7 @@
   gap: 1rem;
 
   .reaction-button {
-    background: white;
+    background: transparent;
     cursor: pointer;
   }
 }

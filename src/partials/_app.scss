@@ -1,5 +1,11 @@
 .App {
   // max-width: 600px;
-  margin: 2rem auto;
-  position: relative;
+  // margin: 2rem auto;
+  // position: relative;
+  background-image: url("./images/waves.svg");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }

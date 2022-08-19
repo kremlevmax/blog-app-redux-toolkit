@@ -13,7 +13,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: transparent;
   overflow: hidden;
 
   display: flex;
@@ -26,12 +26,22 @@
     min-width: 300px;
     padding: 4rem;
     height: auto;
-    border: 2px solid $medium-gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: $shadow-parameters;
     transition: height 0.25s ease-in;
+
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+      6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+      12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+      22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+      41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+      100px 100px 80px rgba(0, 0, 0, 0.07);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
 
     form {
       display: flex;
@@ -44,27 +54,41 @@
 
       input {
         margin-bottom: 1.5rem;
-        border-bottom: 2px solid $medium-gray;
+        border-bottom: 2px solid $light-gray;
         line-height: 2rem;
         transition: $transition-parameters;
+        background: transparent;
 
         &:focus {
           border-bottom: 2px solid $dark-gray;
         }
       }
+
+      .error {
+        min-height: 1.5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: red;
+      }
+
       button {
-        margin: 0 auto 2rem;
-        padding: 0.5rem 1.5rem;
+        max-width: fit-content;
+        padding: 0.7rem 1.5rem;
+
+        background-color: #37a2e5;
+        color: white;
         cursor: pointer;
-        box-shadow: $shadow-parameters;
-        transition: $transition-parameters;
+        margin: 0 auto;
+        border-radius: 2px;
+        transition: all 0.4s ease;
+        box-shadow: 6px 6.7px 5.1px -4px rgba(0, 0, 0, 0.028),
+          20.1px 22.3px 17.2px -4px rgba(0, 0, 0, 0.042),
+          90px 100px 77px -4px rgba(0, 0, 0, 0.07);
+        margin-bottom: 1rem;
 
         &:hover {
-          background: $light-blue;
-        }
-
-        &:active {
-          box-shadow: none;
+          background-color: #0793e3;
+          // color: black;
         }
       }
 

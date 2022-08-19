@@ -24,22 +24,15 @@ const postsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(id, title, content, username, date) {
+      prepare(id, title, content, email, mood, date) {
         return {
           payload: {
             id,
             title,
             content,
-            username,
+            email,
+            mood,
             date,
-            reactions: {
-              thumbsUp: false,
-              wow: false,
-              heart: false,
-              rocket: false,
-              coffee: false,
-              sad: false,
-            },
           },
         };
       },

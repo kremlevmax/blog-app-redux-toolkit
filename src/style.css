@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap");
 * {
   margin: 0%;
   padding: 0;
@@ -26,9 +27,9 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 html,
@@ -37,25 +38,61 @@ body {
 }
 
 .App {
-  margin: 2rem auto 0;
-  position: relative;
-  min-height: 100vh;
-  background-image: url(/src/images/waves.svg);
-  background-repeat: repeat-x;
+  background-image: url("./images/waves.svg");
   background-position: bottom;
+  background-repeat: repeat-x;
+  min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #posts-list {
   max-width: 600px;
   margin: auto;
-  background: #ffffff;
-  padding: 1em 2em;
-  margin-bottom: 2em;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 4rem;
+}
+@media only screen and (max-device-width: 625px) {
+  #posts-list {
+    box-shadow: none;
+  }
 }
 #posts-list h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   text-align: center;
+  position: relative;
+}
+#posts-list h2 .first-block,
+#posts-list h2 .second-block {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+}
+#posts-list h2 .first-block {
+  transform: translateY(10px);
+  background-color: #0793e3;
+}
+#posts-list h2 .second-block {
+  transform: translateY(-10px);
+  background-color: #9bd4f4;
+}
+#posts-list h2 .top-secret {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  display: inline-block;
+  font-family: "Rubik Distressed", cursive;
+  font-size: 1.4rem;
+  color: red;
+  border: 3px solid red;
+  padding: 2px;
+  border-radius: 2px;
+  transform: rotate(-20deg);
 }
 #posts-list article {
   max-width: 550px;
@@ -73,9 +110,18 @@ body {
 #post-form {
   max-width: 600px;
   margin: auto;
-  background: #ffffff;
-  padding: 2em;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media only screen and (max-device-width: 625px) {
+  #post-form {
+    box-shadow: none;
+    background: transparent;
+  }
 }
 #post-form h2 {
   margin-bottom: 2rem;
@@ -87,36 +133,48 @@ body {
   flex-direction: column;
   margin: 0 auto;
 }
+#post-form form label {
+  margin-bottom: 0.5rem;
+}
 #post-form form input,
 #post-form form textarea,
 #post-form form select {
-  border: 2px solid #9e9e9e;
-  margin-bottom: 1.5rem;
-  transition: all 600ms ease;
+  outline: rgba(255, 255, 255, 0.6) solid 1px;
+  background-color: rgba(255, 255, 255, 0.477);
+  margin-bottom: 2rem;
   border-radius: 2px;
-  padding: 4px 0;
 }
-
-#post-form form input:focus,
-#post-form form textarea:focus,
-#post-form form select:focus {
-  border: 2px solid black;
+@media only screen and (max-device-width: 625px) {
+  #post-form form input,
+#post-form form textarea,
+#post-form form select {
+    outline: #63b6ff;
+    border: 1px solid #a7d0f4;
+  }
 }
-
+#post-form form input,
+#post-form form select {
+  height: 2rem;
+}
 #post-form form button {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
   padding: 0.7rem 1.5rem;
+  background-color: #37a2e5;
+  color: white;
   cursor: pointer;
   margin: 0 auto;
-  background-color: #c2dcf4;
-  color: #7b7b7b;
   border-radius: 2px;
-  transition: all 400ms ease;
+  transition: all 0.4s ease;
+  box-shadow: 6px 6.7px 5.1px -4px rgba(0, 0, 0, 0.028), 20.1px 22.3px 17.2px -4px rgba(0, 0, 0, 0.042), 90px 100px 77px -4px rgba(0, 0, 0, 0.07);
 }
 #post-form form button:hover {
-  background-color: #8ec5f8;
+  background-color: #0793e3;
+}
+#post-form form button:disabled {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .reaction-buttons {
@@ -124,7 +182,7 @@ body {
   gap: 1rem;
 }
 .reaction-buttons .reaction-button {
-  background: white;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -151,8 +209,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  min-height: 100vh;
-  background: white;
+  background: transparent;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -164,55 +221,67 @@ body {
   min-width: 300px;
   padding: 4rem;
   height: auto;
-  border: 2px solid #bfbfbf;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: height 0.25s ease-in;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
 }
 .popup-background .popup form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   -webkit-animation-name: textTransition;
-  animation-name: textTransition;
+          animation-name: textTransition;
   -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
+          animation-duration: 1000ms;
   -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 .popup-background .popup form input {
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #bfbfbf;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   line-height: 2rem;
   transition: all 400ms ease;
+  background: transparent;
 }
 .popup-background .popup form input:focus {
-  border-bottom: 2px solid #7b7b7b;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+}
+.popup-background .popup form .error {
+  min-height: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: red;
 }
 .popup-background .popup form button {
-  margin: 0 auto 2rem;
-  padding: 0.5rem 1.5rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 0.7rem 1.5rem;
+  background-color: #37a2e5;
+  color: white;
   cursor: pointer;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: all 400ms ease;
+  margin: 0 auto;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  box-shadow: 6px 6.7px 5.1px -4px rgba(0, 0, 0, 0.028), 20.1px 22.3px 17.2px -4px rgba(0, 0, 0, 0.042), 90px 100px 77px -4px rgba(0, 0, 0, 0.07);
+  margin-bottom: 1rem;
 }
 .popup-background .popup form button:hover {
-  background: #c2dcf4;
-}
-.popup-background .popup form button:active {
-  box-shadow: none;
+  background-color: #0793e3;
 }
 .popup-background .popup form span {
   display: block;
   text-align: center;
   cursor: pointer;
-  color: #bfbfbf;
+  color: rgba(0, 0, 0, 0.4);
   transition: all 400ms ease;
 }
 .popup-background .popup form span:hover {
-  color: #7b7b7b;
-} /*# sourceMappingURL=style.css.map */
+  color: rgba(0, 0, 0, 0.6);
+}/*# sourceMappingURL=style.css.map */

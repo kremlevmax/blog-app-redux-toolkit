@@ -16,7 +16,7 @@ export const useAuth = () => {
     dispatch(
       setLoginStatus({
         loginStatus: false,
-        username: "",
+        email: "",
         loading: true,
       })
     );
@@ -26,7 +26,7 @@ export const useAuth = () => {
         dispatch(
           setLoginStatus({
             loginStatus: true,
-            username: user.email.split("@")[0],
+            email: user.email,
             loading: false,
           })
         );
@@ -43,16 +43,20 @@ export const useAuth = () => {
 export const createAccount = async (email, password) => {
   try {
     await createUserWithEmailAndPassword(auth, email, password);
+    return "done";
   } catch (error) {
     console.log(error);
+    return "exists";
   }
 };
 
 export const loginToAccount = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    return "done";
   } catch (error) {
     console.log(error);
+    return "wrong-password";
   }
 };
 

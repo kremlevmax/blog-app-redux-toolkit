@@ -5,21 +5,36 @@ const Register = ({ hasAccount, setHasAccount }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
+  const [error, setError] = useState("");
 
-  const onUsernameChanged = (event) => setUsername(event.target.value);
-  const onUPasswordChanged = (event) => setPassword(event.target.value);
+  const onUsernameChanged = (event) => {
+    setUsername(event.target.value);
+    setError("");
+  };
+
+  const onUPasswordChanged = (event) => {
+    setPassword(event.target.value);
+    setError("");
+  };
+
   const onUPasswordRepeatChanged = (event) =>
     setPasswordRepeat(event.target.value);
 
-  const registerUser = () => {
+  const registerUser = async () => {
     if (password === passwordRepeat) {
-      createAccount(username, password);
+      const result = await createAccount(username, password);
+
+      if (result === "exists") {
+        setError("Account already exists");
+      }
+
       setUsername("");
       setPassword("");
       setPasswordRepeat("");
     } else {
       setPassword("");
       setPasswordRepeat("");
+      setError("Password repeat doesn't match");
     }
   };
 
@@ -49,6 +64,7 @@ const Register = ({ hasAccount, setHasAccount }) => {
         value={passwordRepeat}
         onChange={onUPasswordRepeatChanged}
       />
+      <p className='error'>{error}</p>
       <button type='button' onClick={registerUser}>
         Join
       </button>

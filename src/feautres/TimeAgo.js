@@ -9,6 +9,6 @@ const TimeAgo = ({ timestamp }) => {
     timeAgo = `${timePeriod} ago`;
   }
 
-  return <span title={timestamp}>&nbsp;-&nbsp;{timeAgo}</span>;
+  return <span title={timestamp}>{timeAgo}</span>;
 };
 export default TimeAgo;

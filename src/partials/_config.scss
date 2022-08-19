@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap");
 
 * {
   margin: 0%;
@@ -34,10 +35,11 @@ body {
   min-height: 100vh;
 }
 
-$light-gray: #f0eff0;
-$medium-gray: #bfbfbf;
-$dark-gray: #7b7b7b;
+$light-gray: rgba(0, 0, 0, 0.2);
+$medium-gray: rgba(0, 0, 0, 0.4);
+$dark-gray: rgba(0, 0, 0, 0.6);
 $light-blue: #f0f8ff;
+$dark-blue: #63b6ff;
 $shadow-parameters: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
   rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 $transition-parameters: all 400ms ease;
